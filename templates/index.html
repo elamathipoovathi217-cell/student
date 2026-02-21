@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Public timetable</h2>
+<table>
+  <tr><th>Date</th><th>Time</th><th>Department</th><th>Year</th><th>Subject</th></tr>
+  {% for row in timetable %}
+  <tr><td>{{ row.exam_date }}</td><td>{{ row.exam_time }}</td><td>{{ row.department }}</td><td>{{ row.year }}</td><td>{{ row.subject }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>Public room allocation</h2>
+<table>
+  <tr><th>Date</th><th>Subject</th><th>Room</th></tr>
+  {% for row in timetable %}
+  <tr><td>{{ row.exam_date }} {{ row.exam_time }}</td><td>{{ row.subject }}</td><td>{{ row.room_no }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>Public invigilator assignment</h2>
+<table>
+  <tr><th>Date</th><th>Subject</th><th>Invigilator</th></tr>
+  {% for row in timetable %}
+  <tr><td>{{ row.exam_date }} {{ row.exam_time }}</td><td>{{ row.subject }}</td><td>{{ row.invigilator }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>Notifications</h2>
+<ul>
+  {% for n in notifications %}
+  <li>{{ n.posted_on }} - {{ n.message }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

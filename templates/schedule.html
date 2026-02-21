@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Student Exam Schedule</h2>
+<table>
+<tr><th>Date</th><th>Time</th><th>Department</th><th>Year</th><th>Subject</th><th>Room</th><th>Invigilator</th></tr>
+{% for row in schedule %}
+<tr>
+  <td>{{ row.exam_date }}</td>
+  <td>{{ row.exam_time }}</td>
+  <td>{{ row.department }}</td>
+  <td>{{ row.year }}</td>
+  <td>{{ row.subject }}</td>
+  <td>{{ row.room_no }}</td>
+  <td>{{ row.invigilator }}</td>
+</tr>
+{% endfor %}
+</table>
+<a class="btn" href="{{ url_for('coordinator.room_invigilator') }}">Allocate Rooms & Invigilators</a>
+{% endblock %}

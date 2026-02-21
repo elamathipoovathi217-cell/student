@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Student Performance</h2>
+<ul>
+  <li>Registration: {{ student.registration_no }}</li>
+  <li>Name: {{ student.name }}</li>
+  <li>Department: {{ student.department }}</li>
+  <li>Attendance: {{ student.attendance }}%</li>
+  <li>Internal 1: {{ student.internal1 }}</li>
+  <li>Internal 2: {{ student.internal2 }}</li>
+  <li>Seminar: {{ student.seminar }}</li>
+  <li>Assessment: {{ student.assessment }}</li>
+  <li>Final Internal Score (out of 20): {{ risk.internal_score }}</li>
+  <li>Risk Status: <strong>{{ risk.status }}</strong></li>
+  <li>Improvement needed to reach 15 marks: {{ risk.improvement_needed }}</li>
+</ul>
+
+<h3>Student Resources</h3>
+<ul>
+  <li>Question Papers</li>
+  <li>Internal Marks Question Papers</li>
+  <li>Answer Keys</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>HOD Dashboard - Subject/Teacher Mapping</h2>
+<table>
+<tr><th>Department</th><th>Year</th><th>Subject</th><th>Assigned Teacher</th><th>Update</th></tr>
+{% for s in subjects %}
+<tr>
+<td>{{ s.department }}</td><td>{{ s.year }}</td><td>{{ s.name }}</td><td>{{ s.assigned_teacher }}</td>
+<td>
+  <form method="post">
+    <input type="hidden" name="subject_id" value="{{ s.id }}">
+    <input type="text" name="teacher_name" placeholder="Teacher name">
+    <button type="submit">Assign</button>
+  </form>
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

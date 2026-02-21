@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Principal Dashboard</h2>
+<p>Full access snapshot of system data.</p>
+<ul>
+  <li>Total Students: {{ counts.students }}</li>
+  <li>Total Subjects: {{ counts.subjects }}</li>
+  <li>Total Scheduled Exams: {{ counts.exams }}</li>
+</ul>
+{% endblock %}
