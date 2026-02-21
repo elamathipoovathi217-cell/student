@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Generate Exam Timetable</h2>
+<form method="post" class="card">
+  <label>Start date <input type="date" name="start_date" required></label>
+  <label>End date <input type="date" name="end_date" required></label>
+  <label>Session
+    <select name="session_mode">
+      <option value="10am">10am</option>
+      <option value="2pm">2pm</option>
+      <option value="both" selected>both 10am,2pm</option>
+    </select>
+  </label>
+  <label>Allocation method
+    <select name="method" id="method">
+      <option value="ml">AI/ML Auto Allocation</option>
+      <option value="manual">Manual by Coordinator</option>
+    </select>
+  </label>
+
+  <div id="manualFields" class="manual hidden">
+    <label>Exam date <input type="date" name="manual_date"></label>
+    <label>Exam time <input type="text" name="manual_time" placeholder="10:00 AM"></label>
+    <label>Department
+      <select name="manual_department">
+        {% for d in departments %}<option value="{{ d.id }}">{{ d.name }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Year <input type="number" name="manual_year" min="1" max="4"></label>
+    <label>Subject
+      <select name="manual_subject">
+        {% for s in subjects %}
+        <option value="{{ s.id }}">{{ s.department }} - Y{{ s.year }} - {{ s.name }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </div>
+
+  <button type="submit">Generate Exam Timetable</button>
+</form>
+<script src="{{ url_for('static', filename='js/timetable.js') }}"></script>
+{% endblock %}

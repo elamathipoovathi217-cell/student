@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Coordinator: Room & Invigilator Allocation</h2>
+{% for exam in exams %}
+<form method="post" class="card small">
+  <input type="hidden" name="exam_id" value="{{ exam.id }}">
+  <strong>{{ exam.exam_date }} | {{ exam.exam_time }} | {{ exam.department }} Y{{ exam.year }} | {{ exam.subject }}</strong>
+  <label>Room No <input type="text" name="room_no" value="{{ exam.room_no }}"></label>
+  <label>Invigilator <input type="text" name="invigilator" value="{{ exam.invigilator }}"></label>
+  <button type="submit">Update</button>
+</form>
+{% endfor %}
+{% endblock %}
